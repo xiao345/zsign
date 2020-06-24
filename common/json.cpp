@@ -2138,7 +2138,7 @@ bool PReader::readLabel(string &label)
 	{
 		return false;
 	}
-
+	
 	label.clear();
 	label.reserve(10);
 	label += c;
@@ -2309,7 +2309,7 @@ void PReader::skipSpaces()
 	while (m_pCur != m_pEnd)
 	{
 		char c = *m_pCur;
-		if (c == ' ' || c == '\t' || c == '\r' || c == '\n')
+		if (c == '\xef' || c == '\xbb' || c == '\xbf' || c == ' ' || c == '\t' || c == '\r' || c == '\n')
 		{
 			m_pCur++;
 		}
